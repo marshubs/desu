@@ -1,42 +1,126 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta name="referrer" content="no-referrer">
-<meta name="googlebot" content="noindex">
-<style>#mediaplayer{width:100%;height:100%}</style>
-<link href="4.6.3/video-js.css" rel="stylesheet">
-<style>.video-js{position:fixed}</style>
+	<meta charset="UTF-8">
+	<meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0' name='viewport'/>
+	<title>Mars Drive</title>
+	<link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/857845513814540319/943398929804976148/20210622_234449.png" type="image/x-icon">
+ <link href="4.6.3/video-js.css" rel="stylesheet">
 </head>
-<body style="margin:0px;">
-<video id="mediaplayer" class="video-js vjs-default-skin" controls preload="auto" width="" height="" poster="" data-setup="{}">
-<source src="" type="video/mp4">
-</video>
-<script src="4.6.3/video.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		video {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+                .embed {
+                        position: absolute;
+                        background: none;
+                        top: 2px;
+                        z-index: 999;
+                        color: aqua;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        border: 0;
+                        font-weight: 600;
+                        right: 10px;
+                }
+	</style>
+	<script src="4.6.3/video.js"></script>
+	</script>
+	<script>
+		var apikey = "AIzaSyAHIDPKFSVbDwk-NdlAW8n3uh2q6AJkyAA";//Your Drive Api Key
+                var eid="";
+                var video="";
+                var embed="";
+
+        if(!getParameterByName('id') || getParameterByName('ib')){
+          var eid = prompt('Enter Drive Video ID :- ');
+          embed = `
+       <iframe width="100%" height="100%" scrolling="no" src="${location.href}?id=${eid}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+        gyroscope; picture-in-picture" allowfullscreen> </iframe>
+          `;
+          prompt('Here is Your Embed Code :- ',embed);
+          window.location.href = window.location.href+'?id='+eid;
+        } 
+        video = getParameterByName('id') ;
+        if(getParameterByName('ib')){
+            video = btoa(getParameterByName('ib'));
+        }
+        var vidurl = "https://www.googleapis.com/drive/v3/files/"+video+"?alt=media&key="+apikey;
+        document.write("<video controls id='video' src="+vidurl+"></video>");
+
+
+function getembed(){
+            var code = `
+<iframe width="100%" height="100%" 
+scrolling="no"
+src="${location.href}?id=${video}" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+          `;
+          prompt('Here is Your Embed Code :- ',code);
+}
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+	</script>
+
+
+	<script>
+    var myFP = fluidPlayer(
+        'video',	{
+	"layoutControls": {
+		"captions": {
+                "play": 'Play',
+                "pause": 'Pause',
+                "mute": 'Mute',
+                "unmute": 'Unmute',
+                "fullscreen": 'Fullscreen',
+                "exitFullscreen": 'Exit Fullscreen'
+            },
+		"controlBar": {
+			"autoHideTimeout": 2,
+			"animated": true,
+			"autoHide": true
+		},
+		"htmlOnPauseBlock": {
+			"html": '<button class=\"embed\" onclick=\"getembed()\">Embed</button>\n',
+			"height": null,
+			"width": null
+		},
+		"autoPlay": false,
+		"mute": false,
+		"allowTheatre": true,
+		"playPauseAnimation": false,
+		"playbackRateEnabled": true,
+		"allowDownload": false,
+		"playButtonShowing": false,
+		"fillToContainer": true,
+		"primaryColor": "#ff3d2d",
+		"posterImage": "https://cdn.discordapp.com/attachments/857845513814540319/943850013711298570/image.webp"
+	},
+	"vastOptions": {
+		"adList": [],
+		"adCTAText": false,
+		"adCTATextPosition": ""
+	}
+})
+</script>
 </body>
+
 </html>
-<!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,4254384,4,0,0,0,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4254384&101" alt="web statistics" border="0"></a></noscript>
-<!-- Histats.com  END  -->
-<style>
-.box_item_ads_popup{position:fixed;z-index:999;left:0;margin:0 auto;text-align:center;right:0;width:500px;height:340px}.box_item_ads_popup img{max-width:350px;max-height:350px}.box_item_ads_popup .close-button{width:30%;margin:auto;padding:6px 10px;background:red;font-size:11px;color:#fff;}
-@media only screen and (max-width:980px){.box_item_ads_popup img{max-width:300px;max-height:250px}.box_item_ads_popup{width:450px;height:280px}}
-.box_item_ads .ads-460{width:calc(50% - 0px)}.box_item_ads .ads-460 img,.box_item_ads .ads-720 img{height:70px}.box_item_ads,.box_item_ads .ads-460,.box_item_ads .ads-720{margin-bottom:0;margin-top:0}.box_item_ads .ads-720{display:block}.box_item_ads{margin-bottom:5px;display:block}.box_item_ads.box_item_ads_popup img{max-width:460px;max-height:280px}.box_item_ads_popup{width:460px;height:280px}}
-@media only screen and (max-width:480px){.box_item_ads_popup img{max-width:280px;max-height:170px}.box_item_ads_popup{width:335px;height:234px}}
-@media only screen and (max-width:425px){.box_item_ads_popup img{max-width:250px;max-height:140px}.box_item_ads_popup{width:335px;height:234px}}
-@media only screen and (max-width:320px){.box_item_ads_popup img{max-width:210px;max-height:120px}.box_item_ads_popup{width:335px;height:234px}}</style>
-<script>$(document).ready(function(){
-$('div.close-button').click(function(eve){
-    eve.preventDefault();
-            $(this).parents('div.box_item_ads_popup').fadeOut('fast');
-        });
-});</script>
-<div class="box_item_ads_popup" style="display: flex;justify-content: center;align-items: center;background: transparent;height: 100%;"><div><a href="http://128.199.142.177/?ref=otakudesu" target="_blank" rel="nofollow"> <img src="https://desustream.me/banner/Otakudesu2.gif" rel="nofollow" alt="Otakudesu" title="MAIN POKER ONLINE DAPAT VIVO V21 | KDSLOTS"></a><div class="close-button">Tutup Iklan</div></div>
