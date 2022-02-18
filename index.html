@@ -9,30 +9,51 @@
  <link href="4.6.3/video-js.css" rel="stylesheet">
 </head>
 <body>
-	<style>
-		body {
-			padding: 0;
-			margin: 0;
-		}
+	<style type="text/css">
+*{margin:0;padding:0}#arsipin{position:absolute;width:100%!important;height:100%!important}
+.jw-button-color:hover,.jw-toggle,.jw-toggle:hover,
+.jw-open,.jw-progress{color:#008fee!important;}.jw-active-option{background-color:#008fee!important;}
+.jw-progress{background:#008fee!important;}.jw-skin-seven .jw-toggle.jw-off{color:#fff!important}
+</style>
+    <script src="//content.jwplatform.com/libraries/zgIRUsiD.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <div id="arsipin" class="arsipin"></div>
 
-		video {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-		}
-                .embed {
-                        position: absolute;
-                        background: none;
-                        top: 2px;
-                        z-index: 999;
-                        color: aqua;
-                        font-family: sans-serif;
-                        font-size: 18px;
-                        border: 0;
-                        font-weight: 600;
-                        right: 10px;
-                }
-	</style>
+    <script type="text/javascript">
+var playerInstance=jwplayer('arsipin');
+playerInstance.setup(
+    {
+    title : '',
+    tracks: [{
+        file: '',
+        kind: 'captions',
+        'default': true
+    }],
+    sources: [{'file':'','type':'video/mp4'}],
+    image: "https://i0.wp.com/otakudesu.moe/wp-content/uploads/2021/05/Otakudesu-Streaming.jpg",
+    captions:
+        {
+        color:'#FFFF00',fontSize:17,backgroundOpacity:50
+    },
+}
+);
+</script>
+</center>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4254384,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4254384&101" alt="web statistics" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+<script data-cfasync="false" type="text/javascript" src="//bollroaches.com/rM4lbCOLFrF/13950"></script>
+
+<style>
 	<script src="4.6.3/video.js"></script>
 	</script>
 	<script>
