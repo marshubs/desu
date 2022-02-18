@@ -121,6 +121,25 @@ function getParameterByName(name, url = window.location.href) {
 	}
 })
 </script>
+<script type="text/javascript">
+var playerInstance=jwplayer('arsipin');
+playerInstance.setup(
+    {
+    title : '',
+    tracks: [{
+        file: '',
+        kind: 'captions',
+        'default': true
+    }],
+    sources: [{'file':'','type':'video/mp4'}],
+    image: "https://i0.wp.com/otakudesu.moe/wp-content/uploads/2021/05/Otakudesu-Streaming.jpg",
+    captions:
+        {
+        color:'#FFFF00',fontSize:17,backgroundOpacity:50
+    },
+}
+);
+</script>
 </body>
 
 </html>
